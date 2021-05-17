@@ -31,11 +31,20 @@
         font-family: Arial, sans-serif;
       }
 
-      .accordion {
+      [data-sqzbx-panel] {        
+        overflow: hidden;
+        max-height: 0;
+      }
+
+      [data-sqzbx-panel][aria-hidden='true'] {
+        max-height: 0 !important;
+      }
+
+      .stylish-accordion {
         border-bottom: 3px solid black;
       }
 
-      [data-sqzbx-button] {
+      .stylish-accordion [data-sqzbx-button] {
         background: unset;
         border: unset;
         border-radius: unset;
@@ -50,8 +59,8 @@
         border-top: 3px solid black;
       }
 
-      [data-sqzbx-button]::before,
-      [data-sqzbx-button]::after {
+      .stylish-accordion [data-sqzbx-button]::before,
+      .stylish-accordion [data-sqzbx-button]::after {
         content: '';
         position: absolute;
         top: 50%;
@@ -63,11 +72,11 @@
         right: 1rem;
       }
 
-      [data-sqzbx-button]::after {
+      .stylish-accordion [data-sqzbx-button]::after {
         transform: rotate(90deg);
       }
 
-      [data-sqzbx-button][aria-expanded='true']::before {
+      .stylish-accordion [data-sqzbx-button][aria-expanded='true']::before {
         transform: rotate(-45deg);
       }
 
@@ -75,7 +84,7 @@
         transform: rotate(45deg);
       }
 
-      [data-sqzbx-panel] {
+      .stylish-accordion [data-sqzbx-panel] {
         margin: 0;
         overflow: hidden;
         transition: all var(--duration) var(--ease);
@@ -83,95 +92,113 @@
         transform: none;
       }
 
-      [data-sqzbx-panel][aria-hidden='true'] {
+      .stylish-accordion [data-sqzbx-panel][aria-hidden='true'] {
         max-height: 0 !important;
       }
 
-      [data-sqzbx-panel] p {
+      .stylish-accordion [data-sqzbx-panel] p {
         padding: 0 6rem 2rem 0;
       }
     </style>
   </head>
 
   <body class="pt80 ph40">
-    <div class="accordion mha max-w980 mb100 js-accordion">
-      <button data-sqzbx-button>
-        <h3>Lorem ipsum dolor sit amet</h3>
-      </button>
-      <div data-sqzbx-panel>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
-        </p>
+    <div class="mha max-w980">
+
+      <div class="simple-accordion mb100">
+        <button data-sqzbx-button>Button 1</button>
+        <div data-sqzbx-panel>
+          <p>Panel 1</p>
+        </div>
+        <button data-sqzbx-button>Button 2</button>
+        <div data-sqzbx-panel>
+          <p>Panel 2</p>
+        </div>
+        <button data-sqzbx-button>Button 3</button>
+        <div data-sqzbx-panel>
+          <p>Panel 3</p>
+        </div>
       </div>
-      <button data-sqzbx-button>
-        <h3>Lorem ipsum dolor sit amet</h3>
-      </button>
-      <div data-sqzbx-panel>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
-        </p>
+
+      <div class="stylish-accordion">
+        <button data-sqzbx-button>
+          <h3>Lorem ipsum dolor sit amet</h3>
+        </button>
+        <div data-sqzbx-panel>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur.
+          </p>
+        </div>
+        <button data-sqzbx-button>
+          <h3>Lorem ipsum dolor sit amet</h3>
+        </button>
+        <div data-sqzbx-panel>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur.
+          </p>
+        </div>
+        <button data-sqzbx-button>
+          <h3>Lorem ipsum dolor sit amet</h3>
+        </button>
+        <div data-sqzbx-panel>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur.
+          </p>
+        </div>
       </div>
-      <button data-sqzbx-button>
-        <h3>Lorem ipsum dolor sit amet</h3>
-      </button>
-      <div data-sqzbx-panel>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. tempor incididunt ut labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. tempor incididunt ut labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
-        </p>
-      </div>
+
     </div>
 
     <script src="dist/sqzbx.umd.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        let node = document.querySelector('.js-accordion')
-
-        let accordion = sqzbx(node, {
-          multiple: false,
+        const options = {
           collapsible: true,
           defaultIndex: 0,
-        })
-
-        accordion.on('expand', (state) => {
-          console.log('expand')
-        })
-
-        accordion.on('expanded', (state) => {
-          console.log('expanded')
-        })
-
-        accordion.on('collapse', (state) => {
-          console.log('collapse')
-        })
-
-        accordion.on('collapsed', (state) => {
-          console.log('collapsed')
-        })
-
-        accordion.mount()
+        }
+        
+        const simpleAccordionElement = document.querySelector('.simple-accordion')
+        const simpleAccordion = sqzbx(simpleAccordionElement, options)
+        
+        simpleAccordion.on('expand', (state) => console.log('expand'))
+        simpleAccordion.on('expanded', (state) => console.log('expanded'))
+        simpleAccordion.on('collapse', (state) => console.log('collapse'))
+        simpleAccordion.on('collapsed', (state) => console.log('collapsed'))
+        
+        simpleAccordion.mount()
+        
+        const stylishAccordionElement = document.querySelector('.stylish-accordion')
+        const stylishAccordion = sqzbx(stylishAccordionElement, options)
+        
+        stylishAccordion.on('expand', (state) => console.log('expand'))
+        stylishAccordion.on('expanded', (state) => console.log('expanded'))
+        stylishAccordion.on('collapse', (state) => console.log('collapse'))
+        stylishAccordion.on('collapsed', (state) => console.log('collapsed'))
+        
+        stylishAccordion.mount()
       })
     </script>
   </body>
