@@ -19,7 +19,7 @@ npm i sqzbx
 
 ### Markup
 
-Apply `data-sqzbx-button` and `data-sqzbx-panel` attributes as illustrated below. sqzbx doesn't care about the structure of your markup as long as the following are true:
+Apply `data-sqzbx-button` and `data-sqzbx-panel` attributes as illustrated below. `sqzbx` doesn't care about the structure of your markup as long as the following are true:
 
 - There are an equal number of `data-sqzbx-button` elements and `data-sqzbx-panel` elements
 - All `data-sqzbx-button` elements are actually [buttons](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
@@ -44,7 +44,7 @@ Apply `data-sqzbx-button` and `data-sqzbx-panel` attributes as illustrated below
 
 ### CSS
 
-Add some CSS. Below are the _minimal recommended styles_, but [here is a more advanced example](index.html).
+Add some CSS. Below are the _minimal recommended styles_, but [here is a more advanced example](index.html)
 
 ```css
 [data-sqzbx-panel] {
@@ -69,3 +69,21 @@ const accordion = sqzbx(element)
 
 accordion.mount()
 ```
+
+## Options
+
+`sqzbx` takes an options object as its second parameter
+
+```js
+sqzbx(element, options)
+```
+
+<!--
+multiple = false,
+    collapsible = false,
+    defaultIndex = null,
+    resize = true, -->
+
+### `multiple` (default: `false`)
+
+When `multiple` is set to `true`, any number of panels may be open at the same time. By default, when a user opens a new accordion item, the previously open item will collapse.
