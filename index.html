@@ -14,188 +14,40 @@
     />
 
     <style>
-      button,
-      input,
-      select,
-      textarea {
-        border: none;
-        border-radius: 0px;
-        margin: 0;
-        padding: 0;
-        width: auto;
-        background: transparent;
-        color: inherit;
-        font: inherit;
-        line-height: inherit;
-        text-decoration: none;
-        white-space: normal;
-        -webkit-font-smoothing: inherit;
-        -moz-osx-font-smoothing: inherit;
-        -webkit-appearance: none;
-        outline: unset;
-      }
-
-      button {
-        text-align: center;
-        cursor: pointer;
-      }
-
-      /* http://meyerweb.com/eric/tools/css/reset/ 
-      v2.0 | 20110126
-      License: none (public domain)
-    */
-
-      html,
-      body,
-      div,
-      span,
-      applet,
-      object,
-      iframe,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      p,
-      blockquote,
-      pre,
-      a,
-      abbr,
-      acronym,
-      address,
-      big,
-      cite,
-      code,
-      del,
-      dfn,
-      em,
-      img,
-      ins,
-      kbd,
-      q,
-      s,
-      samp,
-      small,
-      strike,
-      strong,
-      sub,
-      sup,
-      tt,
-      var,
-      b,
-      u,
-      i,
-      center,
-      dl,
-      dt,
-      dd,
-      ol,
-      ul,
-      li,
-      fieldset,
-      form,
-      label,
-      legend,
-      table,
-      caption,
-      tbody,
-      tfoot,
-      thead,
-      tr,
-      th,
-      td,
-      article,
-      aside,
-      canvas,
-      details,
-      embed,
-      figure,
-      figcaption,
-      footer,
-      header,
-      hgroup,
-      menu,
-      nav,
-      output,
-      ruby,
-      section,
-      summary,
-      time,
-      mark,
-      audio,
-      video {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font-size: 100%;
-        font: inherit;
-        vertical-align: baseline;
-      }
-
-      /* HTML5 display-role reset for older browsers */
-      article,
-      aside,
-      details,
-      figcaption,
-      figure,
-      footer,
-      header,
-      hgroup,
-      menu,
-      nav,
-      section {
-        display: block;
-      }
-
-      body {
-        line-height: 1;
-      }
-
-      ol,
-      ul {
-        list-style: none;
-      }
-
-      blockquote,
-      q {
-        quotes: none;
-      }
-
-      blockquote:before,
-      blockquote:after,
-      q:before,
-      q:after {
-        content: '';
-        content: none;
-      }
-
-      table {
-        border-collapse: collapse;
-        border-spacing: 0;
-      }
-
-      html {
+      :root {
         font-size: 10px;
+        --duration: 0.3s;
+        --ease: cubic-bezier(0.65, 0, 0.35, 1);
+      }
 
-        --io3: cubic-bezier(0.65, 0, 0.35, 1);
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
 
       body {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        font-family: Arial, sans-serif;
       }
 
       .accordion {
-        border-bottom: 2px solid black;
+        border-bottom: 3px solid black;
       }
 
       [data-sqzbx-button] {
+        background: unset;
+        border: unset;
+        border-radius: unset;
+        appearance: none;
+        cursor: pointer;
+        font: inherit;
+
         position: relative;
         width: 100%;
-        padding: 3rem 6rem 3rem 0;
+        padding: 2rem 6rem 2rem 0;
         text-align: left;
-        border-top: 2px solid black;
+        border-top: 3px solid black;
       }
 
       [data-sqzbx-button]::before,
@@ -205,8 +57,8 @@
         top: 50%;
         margin-top: -1px;
         background-color: black;
-        transition: transform 0.35s var(--io3);
-        height: 2px;
+        transition: transform var(--duration) var(--ease);
+        height: 3px;
         width: 2.4rem;
         right: 1rem;
       }
@@ -226,7 +78,7 @@
       [data-sqzbx-panel] {
         margin: 0;
         overflow: hidden;
-        transition: all 0.35s var(--io3);
+        transition: all var(--duration) var(--ease);
         max-height: 0;
         transform: none;
       }
@@ -236,7 +88,7 @@
       }
 
       [data-sqzbx-panel] p {
-        padding: 0 6rem 3rem 0;
+        padding: 0 6rem 2rem 0;
       }
     </style>
   </head>
