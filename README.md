@@ -86,6 +86,6 @@ multiple = false,
 
 ### `multiple`
 
-> (default: `false`)
+> default: `false`
 
 When `multiple` is set to `true`, any number of panels may be open at the same time. By default, when a user opens a new accordion item, the previously open item will collapse.
