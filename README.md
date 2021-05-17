@@ -80,12 +80,18 @@ sqzbx(element, options)
 
 <!--
 multiple = false,
-    collapsible = false,
-    defaultIndex = null,
-    resize = true, -->
+collapsible = false,
+defaultIndex = null,
+resize = true, -->
 
 ### `multiple`
 
 > default: `false`
 
 When `multiple` is set to `true`, any number of panels may be open at the same time. By default, when a user opens a new accordion item, the previously open item will collapse.
+
+### `collapsible`
+
+> default: `false`
+
+When `collapsible` is set to `true`, it is possible to for all panels to be collapsed at the same time. By default, one panel is open at all times.
