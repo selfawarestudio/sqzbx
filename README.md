@@ -19,10 +19,10 @@ npm i sqzbx
 
 ### Markup
 
-Set up your markup and apply `data-sqzbx-button` and `data-sqzbx-panel` attributes as illustrated below. These attributes _can_ be nested. The only rules are as follows:
+Set up your markup and apply `data-sqzbx-button` and `data-sqzbx-panel` attributes as illustrated below. These elements can totally be nested. sqzbx doesn't care about the structure of your markup as long as the following are true:
 
-- [x] There should be an equal number of `data-sqzbx-button` elements and `data-sqzbx-panel` elements
-- [x] All `data-sqzbx-panel` elements must contain exactly 1 child element
+- There are an equal number of `data-sqzbx-button` elements and `data-sqzbx-panel` elements
+- All `data-sqzbx-panel` elements contain exactly 1 child element
 
 > 💡 Be sure to use `<button>` for your `data-sqzbx-button` elements
 
