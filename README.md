@@ -19,7 +19,7 @@ npm i sqzbx
 
 ### Markup
 
-Set up your markup and apply `data-sqzbx-button` and `data-sqzbx-panel` attributes as illustrated below. These elements can totally be nested. sqzbx doesn't care about the structure of your markup as long as the following are true:
+Apply `data-sqzbx-button` and `data-sqzbx-panel` attributes as illustrated below. sqzbx doesn't care about the structure of your markup as long as the following are true:
 
 - There are an equal number of `data-sqzbx-button` elements and `data-sqzbx-panel` elements
 - All `data-sqzbx-button` elements are actually [buttons](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
