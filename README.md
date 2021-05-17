@@ -107,3 +107,53 @@ Sets the initially expanded accordion item.
 > default: `true`
 
 In order to make animation easy, `sqzbx` measures the height of the `firstElementChild` for each panel and automatically updates these values on window resize. Set `resize` to `false` to remove this automatic resize behavior and call the `.resize()` method manually.
+
+## Events
+
+### expand
+
+Fired immediately after a user selects a new accordion item.
+
+```js
+accordion.on('expand', ({ index, button, panel, expanded }) => {})
+```
+
+### collapse
+
+Fired immediately after an accordion item is collapsed.
+
+```js
+accordion.on('collapse', ({ index, button, panel, expanded }) => {})
+```
+
+### expanded
+
+Fired on panel `transitionend` (which means that this event only fires if the panel has a CSS transition).
+
+```js
+accordion.on('expanded', ({ index, button, panel, expanded }) => {})
+```
+
+### collapsed
+
+Fired on panel `transitionend` (which means that this event only fires if the panel has a CSS transition).
+
+```js
+accordion.on('collapsed', ({ index, button, panel, expanded }) => {})
+```
+
+## Event Order
+
+When a user opens a new panel:
+
+A. With default options:
+
+1. `expand`
+2. `collapse`
+
+B. With default options and CSS transitions applied to panels:
+
+1. `expand`
+2. `collapse`
+3. `collapsed`
+4. `expanded`
