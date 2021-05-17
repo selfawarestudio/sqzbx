@@ -1,7 +1,7 @@
 {
   "name": "sqzbx",
   "version": "0.0.1",
-  "description": "a lightweight and accessible accordion",
+  "description": "An accessible accordion in <1kb",
   "source": "src/index.js",
   "main": "dist/sqzbx.js",
   "module": "dist/sqzbx.esm.js",
