@@ -79,16 +79,17 @@ export default function sqzbx(
     on: emitter.on,
     resize,
     mount() {
-      let offResize
+      items.map(setup)
 
+      let offResize
       if (resize) {
         offResize = on(window, 'resize', resize)
         resize()
       }
 
-      let offClick = on(buttons, 'click', (_, i) => {
-        setup(items[i])
-
+      let offClick = on(buttons, 'click', ({ currentTarget }) => {
+        let i = Number(currentTarget.id.split('-')[3])
+        let item = items[i]
         let otherItems = removeIndexFromArray(items, i)
 
         if (!item.open) {

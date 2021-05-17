@@ -142,22 +142,6 @@ Fired on collapsing panel `transitionend` (which means that this event only fire
 accordion.on('collapsed', ({ index, button, panel, open }) => {})
 ```
 
-## Event Order
-
-When a user opens a new panel…
-
-A. With default options:
-
-1. `expand`
-2. `collapse`
-
-B. With default options and CSS transitions applied to panels:
-
-1. `expand`
-2. `collapse`
-3. `collapsed`
-4. `expanded`
-
 ## API
 
 ### `on(event, callback)`
