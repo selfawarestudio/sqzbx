@@ -6,8 +6,7 @@
 
 - 🔬 Tiny (<1kb gzipped)
 - 💕 Accessible by default
-- ✨ Easy to animate
-- 💅🏻 Easy to style
+- ✨ Easy to style and animate
 - ⚙️ Highly configurable
 
 ## Installation
