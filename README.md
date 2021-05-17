@@ -157,3 +157,43 @@ B. With default options and CSS transitions applied to panels:
 2. `collapse`
 3. `collapsed`
 4. `expanded`
+
+## API
+
+### `on(event, callback)`
+
+The callback receives an accordion item object containing `index` of the item, `button` element, `panel` element, and an `expanded` boolean.
+
+```js
+accordion.on('expand', ({ index, button, panel, expanded }) => {})
+```
+
+### `mount()`
+
+Sets up all aria attributes and attaches event listeners. Must be called after initializing an instance of `sqzbx`.
+
+```js
+accordion.mount()
+```
+
+### `unmount()`
+
+Remove all event listeners. Useful for sites with client-side navigation.
+
+```js
+accordion.mount()
+```
+
+### `resize()`
+
+Manually update the panel height. Useful when paired with the `resize` option set to `false` to disable the automatic resizing behavior and manage this yourself.
+
+```js
+import sqzbx from 'sqzbx'
+
+const element = document.querySelector('.accordion')
+const accordion = sqzbx(element, { resize: false })
+
+window.addEventListener('resize', accordion.resize)
+accordion.mount()
+```
