@@ -128,7 +128,7 @@ accordion.on('collapse', ({ index, button, panel, expanded }) => {})
 
 ### expanded
 
-Fired on panel `transitionend` (which means that this event only fires if the panel has a CSS transition).
+Fired on expanding panel `transitionend` (which means that this event only fires if the panel has a CSS transition).
 
 ```js
 accordion.on('expanded', ({ index, button, panel, expanded }) => {})
@@ -136,7 +136,7 @@ accordion.on('expanded', ({ index, button, panel, expanded }) => {})
 
 ### collapsed
 
-Fired on panel `transitionend` (which means that this event only fires if the panel has a CSS transition).
+Fired on collapsing panel `transitionend` (which means that this event only fires if the panel has a CSS transition).
 
 ```js
 accordion.on('collapsed', ({ index, button, panel, expanded }) => {})
@@ -144,7 +144,7 @@ accordion.on('collapsed', ({ index, button, panel, expanded }) => {})
 
 ## Event Order
 
-When a user opens a new panel:
+When a user opens a new panel…
 
 A. With default options:
 
