@@ -44,7 +44,7 @@ Apply `data-sqzbx-button` and `data-sqzbx-panel` attributes as illustrated below
 
 ### CSS
 
-Add some CSS. Below are the _minimal recommended styles_, but you can [check out some more advanced examples here](index.html).
+Add some CSS. Below are the _minimal recommended styles_, but [here is a more advanced example](index.html).
 
 ```css
 [data-sqzbx-panel] {
