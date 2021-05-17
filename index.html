@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sqzbx</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎹</text></svg>"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@selfaware/wool@1.0.3/dist/wool.min.css"
+    />
+
+    <style>
+      button,
+      input,
+      select,
+      textarea {
+        border: none;
+        border-radius: 0px;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        line-height: inherit;
+        text-decoration: none;
+        white-space: normal;
+        -webkit-font-smoothing: inherit;
+        -moz-osx-font-smoothing: inherit;
+        -webkit-appearance: none;
+        outline: unset;
+      }
+
+      button {
+        text-align: center;
+        cursor: pointer;
+      }
+
+      /* http://meyerweb.com/eric/tools/css/reset/ 
+      v2.0 | 20110126
+      License: none (public domain)
+    */
+
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+
+      /* HTML5 display-role reset for older browsers */
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
+
+      body {
+        line-height: 1;
+      }
+
+      ol,
+      ul {
+        list-style: none;
+      }
+
+      blockquote,
+      q {
+        quotes: none;
+      }
+
+      blockquote:before,
+      blockquote:after,
+      q:before,
+      q:after {
+        content: '';
+        content: none;
+      }
+
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+      html {
+        font-size: 10px;
+
+        --io3: cubic-bezier(0.65, 0, 0.35, 1);
+      }
+
+      body {
+        font-size: 2rem;
+      }
+
+      .accordion {
+        border-bottom: 2px solid black;
+      }
+
+      [data-sqzbx-button] {
+        position: relative;
+        width: 100%;
+        padding: 3rem 6rem 3rem 0;
+        text-align: left;
+        border-top: 2px solid black;
+      }
+
+      [data-sqzbx-button]::before,
+      [data-sqzbx-button]::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        margin-top: -1px;
+        background-color: black;
+        transition: transform 0.35s var(--io3);
+        height: 2px;
+        width: 2.4rem;
+        right: 1rem;
+      }
+
+      [data-sqzbx-button]::after {
+        transform: rotate(90deg);
+      }
+
+      [data-sqzbx-button][aria-expanded='true']::before {
+        transform: rotate(-45deg);
+      }
+
+      [data-sqzbx-button][aria-expanded='true']::after {
+        transform: rotate(45deg);
+      }
+
+      [data-sqzbx-panel] {
+        margin: 0;
+        overflow: hidden;
+        transition: all 0.35s var(--io3);
+        max-height: 0;
+        transform: none;
+      }
+
+      [data-sqzbx-panel][aria-hidden='true'] {
+        max-height: 0 !important;
+      }
+
+      [data-sqzbx-panel] p {
+        padding: 0 6rem 3rem 0;
+      }
+    </style>
+  </head>
+
+  <body class="pt80 ph40">
+    <div class="accordion mha max-w980 mb100 js-accordion">
+      <button data-sqzbx-button>
+        <h3>Lorem ipsum dolor sit amet</h3>
+      </button>
+      <div data-sqzbx-panel>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </p>
+      </div>
+      <button data-sqzbx-button>
+        <h3>Lorem ipsum dolor sit amet</h3>
+      </button>
+      <div data-sqzbx-panel>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </p>
+      </div>
+      <button data-sqzbx-button>
+        <h3>Lorem ipsum dolor sit amet</h3>
+      </button>
+      <div data-sqzbx-panel>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. tempor incididunt ut labore et dolore magna aliqua. Ut enim
+          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. tempor incididunt ut labore et dolore magna aliqua. Ut enim
+          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </p>
+      </div>
+    </div>
+
+    <script src="dist/sqzbx.umd.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        let node = document.querySelector('.js-accordion')
+
+        let accordion = sqzbx(node, {
+          multiple: false,
+          collapsible: true,
+          defaultIndex: 0,
+        })
+
+        accordion.on('expand', (state) => {
+          console.log('expand')
+        })
+
+        accordion.on('expanded', (state) => {
+          console.log('expanded')
+        })
+
+        accordion.on('collapse', (state) => {
+          console.log('collapse')
+        })
+
+        accordion.on('collapsed', (state) => {
+          console.log('collapsed')
+        })
+
+        accordion.mount()
+      })
+    </script>
+  </body>
+</html>

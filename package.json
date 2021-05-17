@@ -1,0 +1,43 @@
+{
+  "name": "sqzbx",
+  "version": "0.0.1",
+  "description": "a lightweight and accessible accordion",
+  "source": "src/index.js",
+  "main": "dist/sqzbx.js",
+  "module": "dist/sqzbx.esm.js",
+  "unpkg": "dist/sqzbx.umd.js",
+  "exports": {
+    ".": {
+      "browser": "./dist/sqzbx.modern.js",
+      "umd": "./dist/sqzbx.umd.js",
+      "import": "./dist/sqzbx.esm.js",
+      "require": "./dist/sqzbx.js"
+    }
+  },
+  "scripts": {
+    "build": "npm-run-all --parallel build:*",
+    "build:esm": "microbundle -i src/index.js -o dist/sqzbx.esm.js --no-pkg-main -f es --no-sourcemap",
+    "build:modern": "microbundle -i src/index.js -o dist/sqzbx.modern.js --no-pkg-main -f modern --no-sourcemap",
+    "build:cjs": "microbundle -i src/index.js -o dist/sqzbx.js --no-pkg-main -f cjs",
+    "build:umd": "microbundle -i src/index.js -o dist/sqzbx.umd.js --no-pkg-main --external none -f umd --no-sourcemap",
+    "example": "light-server -s . -p 7000 -w 'index.html' -q",
+    "watch": "microbundle watch --external none --no-sourcemap",
+    "test": "jest"
+  },
+  "repository": "selfawarestudio/sqzbx",
+  "keywords": [
+    "accordion"
+  ],
+  "homepage": "https://github.com/selfawarestudio/sqzbx#readme",
+  "author": "Mike Wagz <mike@selfaware.studio> (https://selfaware.studio)",
+  "license": "MIT",
+  "devDependencies": {
+    "light-server": "^2.9.1",
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "martha": "^2.0.9",
+    "microbundle": "^0.13.0",
+    "smitter": "^0.0.4"
+  }
+}
