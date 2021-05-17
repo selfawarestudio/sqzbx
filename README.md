@@ -94,4 +94,16 @@ When `multiple` is set to `true`, any number of panels may be open at the same t
 
 > default: `false`
 
-When `collapsible` is set to `true`, it is possible to for all panels to be collapsed at the same time. By default, one panel is open at all times.
+When `collapsible` is set to `true`, panels that are already open may be collapsed. By default, open panels only collapse when a user opens a different one.
+
+### `defaultIndex`
+
+> default: `null`
+
+Sets the initially expanded accordion item.
+
+### `resize`
+
+> default: `true`
+
+In order to make animation easy, `sqzbx` measures the height of the `firstElementChild` for each panel and automatically updates these values on window resize. Set `resize` to `false` to remove this automatic resize behavior and call the `.resize()` method manually.
