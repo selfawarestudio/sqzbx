@@ -115,7 +115,7 @@ In order to make animation easy, `sqzbx` measures the height of the `firstElemen
 Fired immediately after a user selects a new accordion item.
 
 ```js
-accordion.on('expand', ({ index, button, panel, expanded }) => {})
+accordion.on('expand', ({ index, button, panel, open }) => {})
 ```
 
 ### collapse
@@ -123,7 +123,7 @@ accordion.on('expand', ({ index, button, panel, expanded }) => {})
 Fired immediately after an accordion item is collapsed.
 
 ```js
-accordion.on('collapse', ({ index, button, panel, expanded }) => {})
+accordion.on('collapse', ({ index, button, panel, open }) => {})
 ```
 
 ### expanded
@@ -131,7 +131,7 @@ accordion.on('collapse', ({ index, button, panel, expanded }) => {})
 Fired on expanding panel `transitionend` (which means that this event only fires if the panel has a CSS transition).
 
 ```js
-accordion.on('expanded', ({ index, button, panel, expanded }) => {})
+accordion.on('expanded', ({ index, button, panel, open }) => {})
 ```
 
 ### collapsed
@@ -139,7 +139,7 @@ accordion.on('expanded', ({ index, button, panel, expanded }) => {})
 Fired on collapsing panel `transitionend` (which means that this event only fires if the panel has a CSS transition).
 
 ```js
-accordion.on('collapsed', ({ index, button, panel, expanded }) => {})
+accordion.on('collapsed', ({ index, button, panel, open }) => {})
 ```
 
 ## Event Order
@@ -162,26 +162,26 @@ B. With default options and CSS transitions applied to panels:
 
 ### `on(event, callback)`
 
-The callback receives an accordion item object containing `index` of the item, `button` element, `panel` element, and an `expanded` boolean.
+The callback receives an accordion item object containing `index` of the item, `button` element, `panel` element, and an `open` boolean.
 
 ```js
-accordion.on('expand', ({ index, button, panel, expanded }) => {})
+accordion.on('expand', ({ index, button, panel, open }) => {})
 ```
 
 ### `mount()`
 
-Sets up all aria attributes and attaches event listeners. Must be called after initializing an instance of `sqzbx`.
+Sets up all aria attributes and attaches event listeners. Must be called after initializing an instance of `sqzbx`. Returns an `unmount` function to remove all event listeners which is useful for sites with client-side navigation.
 
 ```js
-accordion.mount()
-```
+let unmount
 
-### `unmount()`
+function init() {
+  unmount = accordion.mount()
+}
 
-Remove all event listeners. Useful for sites with client-side navigation.
-
-```js
-accordion.mount()
+function destroy() {
+  unmount()
+}
 ```
 
 ### `resize()`

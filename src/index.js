@@ -1,5 +1,5 @@
 import smitter from 'smitter'
-import { noop, qsa, on, once } from 'martha'
+import { qsa, on, once } from 'martha'
 
 let index = -1
 
@@ -13,21 +13,16 @@ export default function sqzbx(
   } = {},
 ) {
   let select = (name) => qsa(`[data-sqzbx-${name}]`, node)
-
-  let offResize = noop
   let uid = ++index
-
   let emitter = smitter()
-  let events = []
 
   let buttons = select('button')
   let panels = select('panel')
-
   let items = buttons.map((button, i) => ({
     index: i,
     button,
     panel: panels[i],
-    expanded: i === defaultIndex,
+    open: i === defaultIndex,
   }))
 
   function resize() {
@@ -43,7 +38,7 @@ export default function sqzbx(
       emitter.emit('expanded', item)
     })
 
-    item.expanded = true
+    item.open = true
 
     button.setAttribute('aria-expanded', true)
     panel.removeAttribute('aria-hidden')
@@ -59,7 +54,7 @@ export default function sqzbx(
         emitter.emit('collapsed', item)
       })
 
-    item.expanded = false
+    item.open = false
 
     button.setAttribute('aria-expanded', false)
     panel.setAttribute('aria-hidden', true)
@@ -68,7 +63,7 @@ export default function sqzbx(
   }
 
   function setup(item) {
-    let { button, panel, expanded, index } = item
+    let { button, panel, open, index } = item
 
     button.setAttribute('aria-controls', `sqzbx-panel-${uid}-${index}`)
     button.setAttribute('id', `sqzbx-button-${uid}-${index}`)
@@ -77,38 +72,38 @@ export default function sqzbx(
     panel.setAttribute('aria-labelledby', `sqzbx-button-${uid}-${index}`)
     panel.setAttribute('id', `sqzbx-panel-${uid}-${index}`)
 
-    expanded ? expand(item) : collapse(item, true)
+    open ? expand(item) : collapse(item, true)
   }
 
   return {
     on: emitter.on,
     resize,
     mount() {
+      let offResize
+
       if (resize) {
         offResize = on(window, 'resize', resize)
         resize()
       }
 
-      events.concat(
-        items.map((item, i) => {
-          setup(item)
-          return on(item.button, 'click', () => {
-            let otherItems = removeIndexFromArray(items, i)
+      let offClick = on(buttons, 'click', (_, i) => {
+        setup(items[i])
 
-            if (!item.expanded) {
-              expand(item)
-              if (multiple) return
-              otherItems.filter((item) => item.expanded).map(collapse)
-            } else {
-              collapsible && collapse(item)
-            }
-          })
-        }),
-      )
-    },
-    unmount() {
-      offResize()
-      events.map((off) => off())
+        let otherItems = removeIndexFromArray(items, i)
+
+        if (!item.open) {
+          expand(item)
+          if (multiple) return
+          otherItems.filter((item) => item.open).map(collapse)
+        } else {
+          collapsible && collapse(item)
+        }
+      })
+
+      return () => {
+        offResize && offResize()
+        offClick()
+      }
     },
   }
 }
