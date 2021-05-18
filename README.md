@@ -59,7 +59,7 @@ Add some CSS. Below are the _minimal recommended styles_, but [here is a more ad
 
 ### JavaScript
 
-Initialize and mount sqxbx
+Initialize and mount `sqzbx`
 
 ```js
 import sqzbx from 'sqzbx'
@@ -77,12 +77,6 @@ accordion.mount()
 ```js
 sqzbx(element, options)
 ```
-
-<!--
-multiple = false,
-collapsible = false,
-defaultIndex = null,
-resize = true, -->
 
 ### `multiple`
 
@@ -146,10 +140,12 @@ accordion.on('collapsed', ({ index, button, panel, open }) => {})
 
 ### `on(event, callback)`
 
-The callback receives an accordion item object containing `index` of the item, `button` element, `panel` element, and an `open` boolean.
+The callback receives an accordion item object containing `index` of the item, `button` element, `panel` element, and an `open` boolean. Returns a function to unsubscribe from the event.
 
 ```js
-accordion.on('expand', ({ index, button, panel, open }) => {})
+const offExpand = accordion.on('expand', ({ index, button, panel, open }) => {})
+
+offExpand() // removes expand event listener
 ```
 
 ### `mount()`

@@ -1,6 +1,6 @@
 {
   "name": "sqzbx",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "An accessible accordion in <1kb",
   "source": "src/index.js",
   "main": "dist/sqzbx.js",
