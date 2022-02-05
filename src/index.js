@@ -1,4 +1,4 @@
-import smitter from 'smitter'
+import { smitter } from 'smitter'
 import { qsa, on, once } from 'martha'
 
 let index = -1
